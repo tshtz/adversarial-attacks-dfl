@@ -1,0 +1,165 @@
+- name: Knapsack
+  model: baseline_mse
+  architecture_name: standard
+  capacity: 120 # capacity of knapsack
+  seed: [0,1,2,3,4,5,6,7,8,9] # seed
+  scheduler: False # scheduler (boolean)
+  lr: 1.0 # learning rate
+  max_epochs: 35 # maximum number of epochs
+  min_epochs: 5 # minimum number of epochs
+  num_workers: 0 # maximum number of workers
+  batch_size: 128 # batch size
+  normalization: "zscore" # norm
+
+- name: Knapsack
+  capacity: 120 # capacity of knapsack
+  model: IntOpt # name of the model
+  architecture_name: standard
+  seed: [0,1,2,3,4,5,6,7,8,9] # seed
+  thr: 0.1 # threshold parameter
+  damping: 10.0 # damping parameter
+  scheduler: False # scheduler (boolean)
+  lr: 0.5 # learning rate
+  max_epochs: 35 # maximum number of epochs
+  min_epochs: 5 # minimum number of epochs
+  num_workers: 0 # maximum number of workers
+  batch_size: 128 # batch size
+  normalization: "zscore" # norm
+
+- name: Knapsack
+  capacity: 120 # capacity of knapsack
+  model: DCOL # name of the model
+  architecture_name: standard
+  seed: [0,1,2,3,4,5,6,7,8,9] # seed
+  mu: 1.0 # regularization parameter DCOL & QPTL
+  scheduler: False # scheduler (boolean)
+  lr: 0.5 # learning rate
+  max_epochs: 35 # maximum number of epochs
+  min_epochs: 5 # minimum number of epochs
+  num_workers: 0 # maximum number of workers
+  batch_size: 128 # batch size
+  normalization: "zscore" # norm
+
+- name: Knapsack
+  capacity: 120 # capacity of knapsack
+  model: SPO # name of the model
+  architecture_name: standard
+  seed: [0,1,2,3,4,5,6,7,8,9] # seed
+  scheduler: False # scheduler (boolean)
+  lr: 1.0 # learning rate
+  max_epochs: 35 # maximum number of epochs
+  min_epochs: 5 # minimum number of epochs
+  num_workers: 0 # maximum number of workers
+  batch_size: 128 # batch size
+  normalization: "zscore" # norm
+
+- name: Knapsack
+  capacity: 120 # capacity of knapsack
+  model: DBB # name of the model
+  architecture_name: standard
+  seed: [0,1,2,3,4,5,6,7,8,9] # seed
+  lambda_val: 0.1 # interpolation parameter blackbox
+  scheduler: False # scheduler (boolean)
+  lr: 1.0 # learning rate
+  max_epochs: 35 # maximum number of epochs
+  min_epochs: 5 # minimum number of epochs
+  num_workers: 0 # maximum number of workers
+  batch_size: 128 # batch size
+  normalization: "zscore" # norm
+
+- name: Knapsack
+  capacity: 120 # capacity of knapsack
+  model: FenchelYoung # name of the model
+  architecture_name: standard
+  seed: [0,1,2,3,4,5,6,7,8,9] # seed
+  sigma: 0.5 # DPO FY noise parameter
+  num_samples: 1 # number of samples FY
+  scheduler: False # scheduler (boolean)
+  lr: 1.0 # learning rate
+  max_epochs: 35 # maximum number of epochs
+  min_epochs: 5 # minimum number of epochs
+  num_workers: 0 # maximum number of workers
+  batch_size: 128 # batch size
+  normalization: "zscore" # norm
+
+- name: Knapsack
+  capacity: 120 # capacity of knapsack
+  model: IMLE # name of the model
+  architecture_name: standard
+  seed: [5,6,7,8,9] # seed
+  temperature: 0.1 # input and target noise temperature parameter
+  nb_iterations: 1 # number of iterations
+  k: 5 # parameter k
+  nb_samples: 1 # number of samples parameter
+  beta: 0.1 # parameter lambda of IMLE
+  scheduler: False # scheduler (boolean)
+  lr: 0.5 # learning rate
+  max_epochs: 35 # maximum number of epochs
+  min_epochs: 5 # minimum number of epochs
+  num_workers: 0 # maximum number of workers
+  batch_size: 128 # batch size
+  normalization: "zscore" # norm
+
+- name: Knapsack
+  capacity: 120
+  model: CachingPO
+  loss: MAP_c
+  architecture_name: standard
+  seed: [0,1,2,3,4,5,6,7,8,9] # seed
+  capacity: 120
+  lr: 1.0
+  tau: 0.00000001 # parameter of rankwise losses
+  growth: 0.05 # growth parameter of rankwise losses
+  max_epochs: 35 #35
+  min_epochs: 5
+  num_workers: 0 # maximum number of workers
+  batch_size: 128
+  normalization: zscore
+
+- name: Knapsack
+  capacity: 120
+  model: CachingPO
+  loss: pairwise
+  architecture_name: standard
+  seed: [0,1,2,3,4,5,6,7,8,9] # seed
+  capacity: 120
+  lr: 0.5
+  tau: 10 # parameter of rankwise losses
+  growth: 0.05 # growth parameter of rankwise losses
+  max_epochs: 35 #35
+  min_epochs: 5
+  num_workers: 0 # maximum number of workers
+  batch_size: 128
+  normalization: zscore
+
+- name: Knapsack
+  capacity: 120
+  model: CachingPO
+  loss: pairwise_diff
+  architecture_name: standard
+  seed: [0,1,2,3,4,5,6,7,8,9] # seed
+  lr: 1.0
+  tau: 0.00000001 # parameter of rankwise losses
+  growth: 0.05 # growth parameter of rankwise losses
+  max_epochs: 35 #35
+  min_epochs: 5
+  num_workers: 0 # maximum number of workers
+  batch_size: 128
+  normalization: zscore
+
+- name: Knapsack
+  capacity: 120
+  model: CachingPO
+  loss: listwise 
+  architecture_name: standard
+  seed: [0,1,2,3,4,5,6,7,8,9] # seed
+  lr: 1.0
+  tau: 0.001 # parameter of rankwise losses
+  growth: 0.05 # growth parameter of rankwise losses
+  max_epochs: 35 #35
+  min_epochs: 5
+  num_workers: 0 # maximum number of workers
+  batch_size: 128
+  normalization: zscore
+
+

@@ -1,0 +1,129 @@
+- name: Warcraft
+  model: baseline  # name of the model
+  loss: mse
+  architecture_name: standard
+  img_size: 24 # size of image in one dimension
+  lr: 0.001 # learning rate
+  batch_size: 128 # batch size
+  max_epochs: 70 # maximum number of epochs
+  min_epochs: 5 # minimum number of epochs
+  num_workers: 0 # maximum number of workers
+  seed: [0,1,2,3,4,5,6,7,8,9] # seed
+  normalization: zscore # norm
+
+
+- name: Warcraft
+  model: SPO  # name of the model
+  architecture_name: standard
+  img_size: 24 # size of image in one dimension
+  lr: 0.005 # learning rate
+  batch_size: 128 # batch size
+  max_epochs: 70 # maximum number of epochs
+  min_epochs: 5 # minimum number of epochs
+  num_workers: 0 # maximum number of workers
+  seed: [6,7,8,9] # seed
+  normalization: zscore # norm
+
+- name: Warcraft
+  model: DBB  # name of the model
+  architecture_name: standard
+  img_size: 24 # size of image in one dimension
+  lr: 0.001 # learning rate
+  batch_size: 128 # batch size
+  max_epochs: 70 # maximum number of epochs
+  min_epochs: 5 # minimum number of epochs
+  num_workers: 0 # maximum number of workers
+  seed: [0] # seed
+  lambda_val: 100.0 # interpolation parameter blackbox
+  normalization: zscore # norm
+
+- name: Warcraft
+  model: FenchelYoung # name of the model
+  architecture_name: standard
+  img_size: 24 # size of image in one dimension
+  lr: 0.01 # learning rate
+  batch_size: 128 # batch size
+  max_epochs: 70 # maximum number of epochs
+  min_epochs: 5 # minimum number of epochs
+  num_workers: 0 # maximum number of workers
+  seed: [0,1,2,3,4,5,6,7,8,9] # seed
+  sigma: 0.01 # DPO FY noise parameter
+  num_samples: 1 # number of samples FY
+  normalization: zscore # norm
+
+- name: Warcraft
+  model: IMLE # name of the model
+  architecture_name: standard
+  img_size: 24 # size of image in one dimension
+  lr: 0.001 # learning rate
+  batch_size: 128 # batch size
+  max_epochs: 70 # maximum number of epochs
+  min_epochs: 5 # minimum number of epochs
+  num_workers: 0 # maximum number of workers
+  seed: [0,1,2,3,4,5,6,7,8,9] # seed
+  temperature: 0.05 # input and target noise temperature parameter
+  nb_iterations: 1 # number of iterations
+  k: 50 # parameter k
+  nb_samples: 1 # number of samples parameter
+  beta: 10.0 # parameter lambda of IMLE
+  normalization: zscore # norm
+
+- name: Warcraft
+  model: CachingPO  # name of the model
+  loss: MAP_c # loss
+  architecture_name: standard
+  img_size: 24 # size of image in one dimension
+  lr: 0.005 # learning rate
+  batch_size: 128 # batch size
+  max_epochs: 70 # maximum number of epochs
+  min_epochs: 5 # minimum number of epochs
+  num_workers: 0 # maximum number of workers
+  seed: [2,3,4,5,6,7,8,9] # seed
+  tau: 0.00000001 # parameter of rankwise losses
+  growth: 0.05 # growth parameter of rankwise losses
+  normalization: zscore # norm
+
+- name: Warcraft
+  model: CachingPO  # name of the model
+  loss: pairwise_diff # loss
+  architecture_name: standard
+  img_size: 24 # size of image in one dimension
+  lr: 0.005 # learning rate
+  batch_size: 128 # batch size
+  max_epochs: 70 # maximum number of epochs
+  min_epochs: 5 # minimum number of epochs
+  num_workers: 0 # maximum number of workers
+  seed: [0,1,2,3,4,5,6,7,8,9] # seed
+  tau: 0.00000001 # parameter of rankwise losses
+  growth: 0.05 # growth parameter of rankwise losses
+  normalization: zscore # norm
+
+- name: Warcraft
+  model: CachingPO  # name of the model
+  loss: pairwise # loss
+  architecture_name: standard
+  img_size: 24 # size of image in one dimension
+  lr: 0.01 # learning rate
+  batch_size: 128 # batch size
+  max_epochs: 70 # maximum number of epochs
+  min_epochs: 5 # minimum number of epochs
+  num_workers: 0 # maximum number of workers
+  seed: [0,1,2,3,4,5,6,7,8,9] # seed
+  tau: 0.1 # parameter of rankwise losses
+  growth: 0.05 # growth parameter of rankwise losses
+  normalization: zscore # norm
+
+- name: Warcraft
+  model: CachingPO  # name of the model
+  loss: listwise # loss
+  architecture_name: standard
+  img_size: 24 # size of image in one dimension
+  lr: 0.005 # learning rate
+  batch_size: 128 # batch size
+  max_epochs: 70 # maximum number of epochs
+  min_epochs: 5 # minimum number of epochs
+  num_workers: 0 # maximum number of workers
+  seed: [2,3,4,5,6,7,8,9] # seed
+  tau: 0.5 # parameter of rankwise losses
+  growth: 0.05 # growth parameter of rankwise losses
+  normalization: zscore # norm
