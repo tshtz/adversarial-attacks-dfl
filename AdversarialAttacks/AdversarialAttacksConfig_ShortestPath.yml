@@ -1,0 +1,161 @@
+# +************************************************************************+*************
+# ****************************** ShortestPath *******************************************
+# +************************************************************************+*************
+
+- dataset: "ShortestPath"
+  models_to_attack: "advanced_median"
+  epsilons: [0.05]
+  attackers:
+
+# --------------- ITERATIVE TARGETED REGRET MAXIMIZATION ATTACKS --------------------
+    - name: "IterativeTargetedRegretMaximizationAttack"
+      attack_kwargs:
+        max_iter: 100 
+        batch_size: 1
+        use_signed_grad: True
+        n_restarts: 1 
+        max_tries: 30  
+        initial_window_size: 0.2 
+        min_window_size: 0.001 
+        stats: True
+# ---------------APGD ATTACKS--------------------
+    - name: "APGDAttack"
+      attack_kwargs:
+        max_iter: 10
+        attack_target_type: "adv_loss_enforce_not_opt"
+        batch_size: 1
+        use_signed_grad: True
+        n_restarts: 2
+    - name: "APGDAttack"
+      attack_kwargs:
+        max_iter: 100
+        attack_target_type: "adv_loss_enforce_not_opt"
+        batch_size: 1
+        use_signed_grad: True
+        n_restarts: 5
+    - name: "APGDAttack"
+      attack_kwargs:
+        max_iter: 200
+        attack_target_type: "adv_loss_enforce_not_opt"
+        batch_size: 1
+        use_signed_grad: True
+        n_restarts: 10
+    - name: "APGDAttack"
+      attack_kwargs:
+        max_iter: 10
+        attack_target_type: "adv_loss_mean_squared_error"
+        batch_size: 1
+        use_signed_grad: True
+        n_restarts: 2
+    - name: "APGDAttack"
+      attack_kwargs:
+        max_iter: 100
+        attack_target_type: "adv_loss_mean_squared_error"
+        batch_size: 1
+        use_signed_grad: True
+        n_restarts: 5
+    - name: "APGDAttack"
+      attack_kwargs:
+        max_iter: 200
+        attack_target_type: "adv_loss_mean_squared_error"
+        batch_size: 1
+        use_signed_grad: True
+        n_restarts: 10
+    - name: "APGDAttack"
+      attack_kwargs:
+        max_iter: 10
+        attack_target_type: "decision_grads"
+        batch_size: 1
+        use_signed_grad: True
+        n_restarts: 2
+    - name: "APGDAttack"
+      attack_kwargs:
+        max_iter: 100
+        attack_target_type: "decision_grads"
+        batch_size: 1
+        use_signed_grad: True
+        n_restarts: 5
+    - name: "APGDAttack"
+      attack_kwargs:
+        max_iter: 200
+        attack_target_type: "decision_grads"
+        batch_size: 1
+        use_signed_grad: True
+        n_restarts: 10
+# ---------------FGSM ATTACKS--------------------
+    - name: "FGSMAttack"
+      attack_kwargs:
+        attack_target_type: "adv_loss_enforce_not_opt"
+        batch_size: 1
+    - name: "FGSMAttack"
+      attack_kwargs:
+        attack_target_type: "decision_grads"
+        batch_size: 1
+    - name: "FGSMAttack"
+      attack_kwargs:
+        attack_target_type: "adv_loss_mean_squared_error"
+        batch_size: 1
+# --------------- RANDOM NOISE ATTACKS --------------------
+    - name: "RandomNoiseAttack"
+      attack_kwargs:
+        dist_type: "uniform"
+        batch_size: 1
+        n_restarts: 10
+
+- dataset: "ShortestPath"
+  models_to_attack: "advanced_median"
+  epsilons: [0.025, 0.1]
+  attackers:
+
+# --------------- ITERATIVE TARGETED REGRET MAXIMIZATION ATTACKS --------------------
+    - name: "IterativeTargetedRegretMaximizationAttack"
+      attack_kwargs:
+        max_iter: 100 
+        batch_size: 1
+        use_signed_grad: True
+        n_restarts: 1 
+        max_tries: 30  
+        initial_window_size: 0.2 
+        min_window_size: 0.001 
+        stats: True
+# ---------------APGD ATTACKS--------------------
+    - name: "APGDAttack"
+      attack_kwargs:
+        max_iter: 100
+        attack_target_type: "adv_loss_enforce_not_opt"
+        batch_size: 1
+        use_signed_grad: True
+        n_restarts: 5
+    - name: "APGDAttack"
+      attack_kwargs:
+        max_iter: 100
+        attack_target_type: "adv_loss_mean_squared_error"
+        batch_size: 1
+        use_signed_grad: True
+        n_restarts: 5
+    - name: "APGDAttack"
+      attack_kwargs:
+        max_iter: 100
+        attack_target_type: "decision_grads"
+        batch_size: 1
+        use_signed_grad: True
+        n_restarts: 5
+# ---------------FGSM ATTACKS--------------------
+    - name: "FGSMAttack"
+      attack_kwargs:
+        attack_target_type: "adv_loss_enforce_not_opt"
+        batch_size: 1
+    - name: "FGSMAttack"
+      attack_kwargs:
+        attack_target_type: "decision_grads"
+        batch_size: 1
+    - name: "FGSMAttack"
+      attack_kwargs:
+        attack_target_type: "adv_loss_mean_squared_error"
+        batch_size: 1
+# --------------- RANDOM NOISE ATTACKS --------------------
+    - name: "RandomNoiseAttack"
+      attack_kwargs:
+        dist_type: "uniform"
+        batch_size: 1
+        n_restarts: 10
