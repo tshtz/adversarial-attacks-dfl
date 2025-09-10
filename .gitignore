@@ -29,11 +29,6 @@ uv.lock
 # do not track any file that starts with output 
 output*
 
-# For now do not track any notebooks 
-Notebooks/**
-
-
-
 # Origin# Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

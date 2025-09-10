@@ -1,53 +1,22 @@
-# robust-dfl
-Cloned from the predopt-benchmarks repository. 
+# adversarial-attacks-dfl
+## Overview
 
-# Old README.md
+This repository contains the accompanying code for the Master Thesis "Investigating Gradient-Based Adversarial Attacks in Decision-Focused-Learning" by Tim Schätz at RWTH Aachen University, supervised by Prof. Dr. Holger H. Hoos and Anna Münz. 
 
-## Installation instructions
+The code is built on the existing repository [robust-dfl](https://github.com/PredOpt/predopt-benchmarks) from the paper "Decision-focused learning: Foundations, state of the art, benchmark and future opportunities" by Mandi, Jayanta and Kotary, James and Berden, Senne and Mulamba, Maxime and Bucarey, Victor and Guns, Tias and Fioretto, Ferdinando.
 
+## Installation and Usage
+We ran our experiments using python 3.10 and used uv for dependency management.
+All requirements are listed [here](pyproject.toml).
 
+The configuration files to create the models are located in the [ModelCreators](ModelCreators) folder.
+To create the models run the corresponding .py file passing the desired configuration file as an argument.
 
-Installation requires packages within a virtual environement. This way, scripts and libraries installed are isolated from others on your machine.
-#### It is recommended to use `venv`
-Recommneded python version `Python 3.7.3`.
+The [AdversarialAttacks](AdversarialAttacks) folder contains the configuration files to run the adversarial attacks.
+To run the attacks, execute the corresponding run_adv_attack.py file passing the desired configuration file as an argument.
 
-Create the virtual environment by running the following
-```bash
-python3 -m venv benchmarking_env 
-source benchmarking_env/bin/activate
-```
+The [Notebooks](Notebooks) folder contain some of the evaluation notebooks that we used to analyze the results.
 
-#### Pip
-Recommended to upgrade pip
-```bash
-pip install --upgrade pip
-```
+The code for the hyperparameter configuration including the configspaces is located in the [HyperparameterOptimization](HyperparameterOptimization) folder.
 
-Then install all required packages with pip
-
-```bash
-pip install -r requirements.txt
-```
-#### Conda
-Alternatively, you can use conda to create a virtual environement.
-
-First, make sure that conda is installed. Refer to [this guide](https://conda.io/projects/conda/en/latest/user-guide/install/index.html) to install it on your system.
-
-After cloning this repository from github, create a new virtual environment that installs the neede packages locally, with the following command:
-
-```bash
-conda env create -n benchmarking_env --file environment.yml
-```
-
-Then to activate this environment, use
-```bash
-conda activate benchmarking_env
-```
-Or, on Windows
-```
-source activate benchmarking_env
-```
-
-You can install any additional library using conda or pip.
-
-### Then to run the benchmarking experiments, navigate to the corresponding directory.
+Make sure to download the datasets (as described [here](https://www.jair.org/index.php/jair/article/view/15320) and [here](https://www.jair.org/index.php/jair/article/view/15320) ) and adjust the paths accordingly.
